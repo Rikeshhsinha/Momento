@@ -1,0 +1,32 @@
+{
+  "name": "momento",
+  "version": "1.0.0",
+  "description": "Backend API for Momento social media platform",
+  "keywords": [
+    "social-media",
+    "mern",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "homepage": "https://github.com/Rikeshhsinha/Momento#readme",
+  "bugs": {
+    "url": "https://github.com/Rikeshhsinha/Momento/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rikeshhsinha/Momento.git"
+  },
+  "license": "ISC",
+  "author": "Rikesh Sinha",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.0"
+  }
+}
