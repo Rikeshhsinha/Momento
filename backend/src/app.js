@@ -24,6 +24,18 @@ app.post('/create-post',upload.single('image'), async (req, res) => {
         return res.status(201).json({
             message: 'Post created successfully',
         });
-    })
+    });
+
+
+    app.get('/get-posts', async (req, res) => {
+        try {
+            const posts = await postSchema.find();
+            return res.status(200).json({
+                message: 'Posts fetched successfully',
+            });
+        } catch (error) {
+            return res.status(500).json({ message: 'Error fetching posts', error });
+        }
+    });
 
 export default app;
