@@ -2,9 +2,11 @@ import express from 'express';
 import multer from 'multer';
 import uploadFile from './services/storage.services.js';
 import postSchema from './models/post.models.js';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -27,15 +29,21 @@ app.post('/create-post',upload.single('image'), async (req, res) => {
     });
 
 
-    app.get('/get-posts', async (req, res) => {
-        try {
-            const posts = await postSchema.find();
-            return res.status(200).json({
-                message: 'Posts fetched successfully',
-            });
-        } catch (error) {
-            return res.status(500).json({ message: 'Error fetching posts', error });
-        }
+    app.get("/get-posts", async (req, res) => {
+  try {
+    const posts = await postSchema.find();
+
+    return res.status(200).json({
+      message: "Posts fetched successfully",
+      posts: posts,
     });
+
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error fetching posts",
+      error: error.message,
+    });
+  }
+});
 
 export default app;
